@@ -125,12 +125,10 @@ public class UILogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
-        /*new UIPrincipal().setVisible(true);
-        dispose();*/
-        
-        HoraActual hora = new HoraActual();
-        hora.start();
-        System.out.println(hora.getFecha());
+        new UIPrincipal().setVisible(true);
+        Index i = new Index();
+        i.setLevel(1);
+        dispose();
     }//GEN-LAST:event_btnEnterActionPerformed
 
     /**

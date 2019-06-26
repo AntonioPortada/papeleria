@@ -2,25 +2,29 @@ package com.controller;
 
 import java.util.Calendar;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Administrador
  */
 public class HoraActual extends Thread {
     
+    private JLabel label;
     private static String fecha;
     
-    public void setFecha(String fecha){ this.fecha = fecha; }
-    
-    public String getFecha(){ return fecha; }
+    public HoraActual(JLabel label){
+        this.label = label;
+    }
     
     @Override
     public void run(){
         while(true){
             Calendar date = Calendar.getInstance();
-            String curretDay = date.get(Calendar.DATE)+"/"+minutos(date.get(Calendar.MONTH+1))+"/"+date.get(Calendar.YEAR)+ " " 
-                              +date.get(Calendar.HOUR_OF_DAY)+ ":" +minutos(date.get(Calendar.MINUTE))+":"+date.get(Calendar.SECOND);  
-
+            String currentDay = date.get(Calendar.DATE)+"/"+date.get(Calendar.MONTH)+"/"+date.get(Calendar.YEAR)+ " " 
+                              +date.get(Calendar.HOUR_OF_DAY)+ ":" +minutos(date.get(Calendar.MINUTE))+":"+minutos(date.get(Calendar.SECOND));  
+            label.setText(currentDay);
+            
             try{
                 sleep(1000);
             }
@@ -28,8 +32,7 @@ public class HoraActual extends Thread {
                 ex.printStackTrace();
             }
             
-            setFecha(curretDay);
-            System.out.println("fecha desde clase: "+curretDay);
+            //System.out.println("fecha desde clase: "+currentDay);
         }
     }
     

@@ -1,5 +1,7 @@
 package com.presentacion;
 
+import java.awt.Color;
+
 import javax.swing.JMenu;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
@@ -11,7 +13,9 @@ import javax.swing.JMenuItem;
  */
 public class Index extends JFrame {
     
-    public Index(int level){
+    protected static int level;
+    
+    public Index(){
         JMenuBar bar = new JMenuBar();
         
         //Menus
@@ -41,14 +45,18 @@ public class Index extends JFrame {
         JMenuItem itemDeleteProduct = new JMenuItem("Borrar");
         JMenuItem itemEditProduct = new JMenuItem("Editar");
         JMenuItem itemDiscount = new JMenuItem("Descuentos");
+        JMenuItem itemCotizacion = new JMenuItem("Cotización");
         menuProduct.add(itemInsertProduct);
         menuProduct.add(itemDeleteProduct);
         menuProduct.add(itemEditProduct);
         menuProduct.add(itemDiscount);
+        menuProduct.add(itemCotizacion);
         
         //items Options
         JMenuItem itemExit = new JMenuItem("Salir");
+        JMenuItem itemHelp = new JMenuItem("Ayuda");
         menuOptions.add(itemExit);
+        menuOptions.add(itemHelp);
         
         bar.add(menuUser);
         bar.add(menuRol);
@@ -63,6 +71,11 @@ public class Index extends JFrame {
             System.exit(0);
         });
         
+        setBackground(Color.WHITE);
         setExtendedState(MAXIMIZED_BOTH);
     }
+    
+    public int getLevel(){ return level; }
+    
+    public void setLevel(int level){ this.level = level; } 
 }
